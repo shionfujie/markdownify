@@ -1,7 +1,7 @@
 {
   "name": "Markdownify",
   "description": "",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "manifest_version": 2,
   "icons": {
     "16": "images/get_started16.png",
@@ -9,7 +9,7 @@
     "48": "images/get_started48.png",
     "128": "images/get_started128.png"
   },
-  "permissions": ["tabs", "clipboardWrite"],
+  "permissions": ["tabs", "clipboardWrite", "<all_urls>"],
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
