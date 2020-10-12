@@ -29,16 +29,16 @@ const actionSpec = {
 };
 
 function requestClipPageURLs() {
-    chrome.tabs.query({currentWindow: true, highlighted: true}, tabs => {
-        // Parse tabs to a list of links in markdown
-        const clip = tabs.map(({title, url}) => `- [${title}](${url})`)
-            .join("\n")
-        // Request to copy it to the clipboard
-        sendMessageToActiveTab({type: 'clip', clip})
-    })
+  chrome.tabs.query({ currentWindow: true, highlighted: true }, tabs => {
+    // Parse tabs to a list of links in markdown
+    const clip = tabs
+      .map(({ title, url }) => `- [${title}](${url})`)
+      .join("\n");
+    // Request to copy it to the clipboard
+    sendMessageToActiveTab({ type: "clip", clip });
+  });
 }
 
 function injectAnchorExtractor() {
-  chrome.tabs.insertCSS({file: '/css/anchor.css'})
-  chrome.tabs.executeScript({file: '/js/anchor.js'})
+  chrome.tabs.executeScript({ file: "/js/anchor.js" });
 }
