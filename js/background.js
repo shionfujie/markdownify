@@ -40,4 +40,5 @@ function requestClipPageURLs() {
 
 function injectAnchorExtractor() {
   chrome.tabs.insertCSS({file: '/css/anchor.css'})
+  chrome.tabs.executeScript({file: '/js/anchor.js'})
 }
