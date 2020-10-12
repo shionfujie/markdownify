@@ -30,6 +30,6 @@ function requestClipPageURLs() {
         const clip = tabs.map(({title, url}) => `- [${title}](${url})`)
             .join("\n")
         // Request to copy it to the clipboard
-        chrome.tabs.sendMessage(tabs[0].id, {type: 'clip', clip})
+        sendMessageToActiveTab({type: 'clip', clip})
     })
 }
