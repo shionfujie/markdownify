@@ -20,6 +20,10 @@ const actionSpec = {
     "clip links": {
       displayName: "Markdownify: Copy Selected Pages' URLs",
       f: requestClipPageURLs
+    },
+    "extract anchor": {
+      displayName: "Markdownify: Copy Anchor's Link",
+      f: injectAnchorExtractor
     }
   }
 };
@@ -32,4 +36,8 @@ function requestClipPageURLs() {
         // Request to copy it to the clipboard
         sendMessageToActiveTab({type: 'clip', clip})
     })
+}
+
+function injectAnchorExtractor() {
+  chrome.tabs.insertCSS({file: '/css/anchor.css'})
 }
