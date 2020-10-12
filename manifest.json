@@ -1,7 +1,7 @@
 {
   "name": "Markdownify",
   "description": "",
-  "version": "0.1.1",
+  "version": "0.1.0",
   "manifest_version": 2,
   "icons": {
     "16": "images/get_started16.png",
@@ -17,7 +17,7 @@
     }
   ],
   "background": {
-    "scripts": ["js/chrome/tabs/sendMessageToActiveTab.js", "js/background.js"],
+    "scripts": ["js/background.js"],
     "persistent": false
   }
 }
