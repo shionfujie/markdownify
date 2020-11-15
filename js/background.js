@@ -32,7 +32,7 @@ function requestClipPageURLs() {
   chrome.tabs.query({ currentWindow: true, highlighted: true }, tabs => {
     // Parse tabs to a list of links in markdown
     const clip = tabs
-      .map(({ title, url }) => `- [${title}](${url})`)
+      .map(({ title, url }) => `- [${title} ${new URL(url).hostname}](${url})`)
       .join("\n");
     // Request to copy it to the clipboard
     sendMessageToActiveTab({ type: "clip", clip });
