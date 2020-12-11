@@ -19,7 +19,7 @@ function removeListeners() {
 
 function extractLink(e) {
   e.preventDefault();
-  const el = e.target;
+  const el = e.currentTarget;
   const newClip = `[${el.textContent}](${el.href})`;
   navigator.clipboard.writeText(newClip);
   teardown();
