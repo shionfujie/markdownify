@@ -21,7 +21,12 @@ function extractLink(e) {
   e.preventDefault();
   const el = e.currentTarget;
   const newClip = `[${el.textContent}](${el.href})`;
-  navigator.clipboard.writeText(newClip);
+  if (navigator.clipboard === undefined) {
+    console.debug("extractLink: newClip: ", newClip)
+    console.debug("extractLink: navigator.clipboard is not available")
+  } else {
+    navigator.clipboard.writeText(newClip);
+  }
   teardown();
 }
 
