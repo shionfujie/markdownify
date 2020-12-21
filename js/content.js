@@ -7,5 +7,10 @@ chrome.runtime.onMessage.addListener((message) => {
 });
 
 function clip(newClip) {
-    navigator.clipboard.writeText(newClip)
+  if (navigator.clipboard === undefined) {
+    console.debug("extractLink: newClip: ", newClip)
+    console.debug("extractLink: navigator.clipboard is not available")
+  } else {
+    navigator.clipboard.writeText(newClip);
+  }
 }
