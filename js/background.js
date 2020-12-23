@@ -39,6 +39,10 @@ function requestClipPageURLs() {
   });
 }
 
+function sanitizeURL(url) {
+  return url.replace(/#:~:text=.*$/, "") // Trim Chrome's Text Fragments
+}
+
 function injectAnchorExtractor() {
   chrome.tabs.executeScript({ file: "/js/anchor.js" });
 }
