@@ -32,11 +32,15 @@ function requestClipPageURLs() {
   chrome.tabs.query({ currentWindow: true, highlighted: true }, tabs => {
     // Parse tabs to a list of links in markdown
     const clip = tabs
-      .map(({ title, url }) => `- [${title} ${new URL(url).hostname}](${url})`)
+      .map(({ title, url }) => `- [${title} ${new URL(url).hostname}](${sanitizeURL(url)})`)
       .join("\n");
     // Request to copy it to the clipboard
     sendMessageToActiveTab({ type: "clip", clip });
   });
+}
+
+function sanitizeURL(url) {
+  return url.replace(/#:~:text=.*$/, "") // Trim Chrome's Text Fragments
 }
 
 function injectAnchorExtractor() {
