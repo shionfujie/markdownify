@@ -23,7 +23,11 @@ const actionSpec = {
     },
     "extract anchor": {
       displayName: "Markdownify: Copy Anchor's Link",
-      f: injectAnchorExtractor
+      f: injectAnchorExtractor("/js/anchor.js")
+    },
+    "take links in paragraph": {
+      displayName: "Markdownify: Take All Links in Paragraph",
+      f: injectAnchorExtractor("/js/a-in-p-div.js")
     }
   }
 };
@@ -43,6 +47,6 @@ function sanitizeURL(url) {
   return url.replace(/#:~:text=.*$/, "") // Trim Chrome's Text Fragments
 }
 
-function injectAnchorExtractor() {
-  chrome.tabs.executeScript({ file: "/js/anchor.js" });
+function injectAnchorExtractor(file) {
+  return () => chrome.tabs.executeScript({ file });
 }
