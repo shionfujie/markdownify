@@ -38,7 +38,7 @@ function takeLinksWithin(ev) {
 function Title(text) {
     var result = ""
     for (const word of text.split(/([^\w’']+)/)) {
-        result += word.charAt(0).toUpperCase() + word.substring(1).toLowerCase()
+        result += word.charAt(0).toUpperCase() + word.substring(1)
     }
     return result
 }
