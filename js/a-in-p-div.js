@@ -1,4 +1,4 @@
-const selector = "p,div,li,dd"
+var selector = "p,div,li,dd"
 var capturing = undefined
 
 setup();
