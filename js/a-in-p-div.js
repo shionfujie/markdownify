@@ -1,14 +1,23 @@
+const selector = "p,div,li,dd"
+var capturing = undefined
+
 setup();
 
 function setup() {
     addListeners();
 }
 
-var capturing = undefined
 function addListeners() {
-    for (const el of document.querySelectorAll("p,div")) {
+    for (const el of document.querySelectorAll(selector)) {
         el.addEventListener("mouseover", highlightBackground)
         el.addEventListener("click", takeLinksWithin)
+    }
+}
+
+function removeListeners() {
+    for (const el of document.querySelectorAll(selector)) {
+        el.removeEventListener("mouseover", highlightBackground);
+        el.removeEventListener("click", takeLinksWithin)
     }
 }
 
@@ -57,12 +66,4 @@ function teardown() {
         capturing.style["background"] = ""
     }
     removeListeners()
-}
-
-
-function removeListeners() {
-    for (const el of document.querySelectorAll("p,div")) {
-        el.removeEventListener("mouseover", highlightBackground);
-        el.removeEventListener("click", takeLinksWithin)
-    }
 }
