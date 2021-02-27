@@ -1,4 +1,4 @@
-var selector = "p,div,li,dd"
+var selector = "p,div,li,dd,td"
 var capturing = undefined
 
 setup();
