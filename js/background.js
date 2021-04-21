@@ -25,10 +25,14 @@ const actionSpec = {
       displayName: "Markdownify: Copy Anchor's Link",
       f: injectAnchorExtractor("/js/anchor.js")
     },
+    "extract links in list": {
+      displayName: "Markdownify: Copy Links in List",
+      f: injectAnchorExtractor("/js/links-in-list.js")
+    },
     "take links in paragraph": {
       displayName: "Markdownify: Take All Links in Paragraph",
       f: injectAnchorExtractor("/js/a-in-p-div.js")
-    }
+    },
   }
 };
 
