@@ -1,7 +1,7 @@
 {
   "name": "Markdownify",
   "description": "",
-  "version": "0.3.4",
+  "version": "0.4.0",
   "manifest_version": 2,
   "icons": {
     "16": "images/get_started16.png",
